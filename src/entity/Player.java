@@ -2,9 +2,12 @@ package entity;
 
 import main.KeyHandler;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 //import java.awt.Polygon;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import main.GamePanel;
 
@@ -16,20 +19,37 @@ public class Player extends Entity{
         this.gp = gp;
         this.keyH = keyH;
         setDefaultValues();
+        getPlayerImage();
     }
     public void setDefaultValues(){    
         x=100;
         y=100;
         speed=4;
+        direction="down";
+    }
+    public void getPlayerImage(){
+        try{
+            down1 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-0.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-1.png"));
+            down3 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-2.png"));
+            down4 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-3.png"));
+        } catch(IOException e){
+            e.printStackTrace();
+        
+        }
     }
     public void update(){
         if(keyH.upPressed){
+            direction="up";
             y-=speed;
         } else if(keyH.downPressed){
+            direction="down";
             y+=speed;
         } else if(keyH.leftPressed){
+            direction="left";
             x-=speed;
         } else if(keyH.rightPressed){
+            direction="right";
             x+=speed;
         }
     }
@@ -59,7 +79,23 @@ public class Player extends Entity{
             p.ypoints[i]=y+(i%2)*gp.tileSize/2;
         }
         g2.fillPolygon(p);*/
-        g2.setColor(Color.WHITE);
-        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
+        /*g2.setColor(Color.WHITE);
+        g2.fillRect(x, y, gp.tileSize, gp.tileSize);*/
+        BufferedImage image =null;
+        switch (direction) {
+            case "up":
+                image = down1;
+                break;
+            case "down":
+                image = down2;
+                break;
+            case "left":
+                image = down3;
+                break;
+            case "right":
+                image = down4;
+                break;
+        }
+        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }
 }
