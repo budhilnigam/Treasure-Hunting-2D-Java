@@ -4,6 +4,7 @@ import main.KeyHandler;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 //import java.awt.Polygon;
 import java.io.IOException;
 
@@ -29,10 +30,15 @@ public class Player extends Entity{
     }
     public void getPlayerImage(){
         try{
-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-0.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-1.png"));
-            down3 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-2.png"));
-            down4 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-3.png"));
+            File f1 = new File("./res/player/pixil-frame-0.png");
+            File f2 = new File("./res/player/pixil-frame-1.png");
+            File f3 = new File("./res/player/pixil-frame-2.png");
+            File f4 = new File("./res/player/pixil-frame-3.png");
+            
+            down1 = ImageIO.read(f1);
+            down2 = ImageIO.read(f2);
+            down3 = ImageIO.read(f3);
+            down4 = ImageIO.read(f4);
         } catch(IOException e){
             e.printStackTrace();
         }
