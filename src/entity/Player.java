@@ -35,7 +35,6 @@ public class Player extends Entity{
             down4 = ImageIO.read(getClass().getResourceAsStream("/player/pixil-frame-3.png"));
         } catch(IOException e){
             e.printStackTrace();
-        
         }
     }
     public void update(){
