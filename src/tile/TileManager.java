@@ -66,6 +66,11 @@ public class TileManager {
         g2.drawImage(tile[2].image, 144, 192, gp.tileSize, gp.tileSize, null);
         g2.drawImage(tile[1].image, 192, 192, gp.tileSize, gp.tileSize, null);
 
+        int col=0;
+        int row=0;
+        int x=0;
+        int y=0;
+        while(col<gp.maxS)
     }
 }
 
