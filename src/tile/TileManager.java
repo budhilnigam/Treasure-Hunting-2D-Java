@@ -1,7 +1,6 @@
 package tile;
 
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -72,7 +71,7 @@ public class TileManager {
         int x=0;
         int y=0;
         while(col<gp.maxScreenCol && row < gp.maxScreenRow){
-            g2.drawImage(tile[0].image, x, y, gp.tileSize, gp.tileSize, null);
+            g2.drawImage(tile[1].image, x, y, gp.tileSize, gp.tileSize, null);
             x+=gp.tileSize;
             col++;
             if(col==gp.maxScreenCol){
