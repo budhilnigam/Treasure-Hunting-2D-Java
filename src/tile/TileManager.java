@@ -30,6 +30,15 @@ public class TileManager {
             tile[2]=new Tile();
             tile[2].image=ImageIO.read(new File("./res/tiles/water.png"));
 
+            tile[3]=new Tile();
+            tile[3].image=ImageIO.read(new File("./res/tiles/water.png"));
+
+            tile[4]=new Tile();
+            tile[4].image=ImageIO.read(new File("./res/tiles/water.png"));//tree
+
+            tile[5]=new Tile();
+            tile[5].image=ImageIO.read(new File("./res/tiles/water.png"));//sand
+
         } catch (IOException e){
             e.printStackTrace();
         }
