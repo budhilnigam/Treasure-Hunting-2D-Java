@@ -31,7 +31,7 @@ public class TileManager {
             tile[2].image=ImageIO.read(new File("./res/tiles/water.png"));
 
             tile[3]=new Tile();
-            tile[3].image=ImageIO.read(new File("./res/tiles/water.png"));
+            tile[3].image=ImageIO.read(new File("./res/tiles/water.png"));//earth
 
             tile[4]=new Tile();
             tile[4].image=ImageIO.read(new File("./res/tiles/water.png"));//tree
