@@ -11,11 +11,12 @@ import main.GamePanel;
 public class TileManager {
     GamePanel gp;
     Tile[] tile;
+    int mapTileNum[][];
 
     public TileManager(GamePanel gp){
         this.gp = gp;
         tile = new Tile[20];
-        
+        mapTileNum= new int[gp.maxWorldRow][gp.maxWorldCol];
         getTileImage();
     }
 
