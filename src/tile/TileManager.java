@@ -1,8 +1,10 @@
 package tile;
 
 import java.awt.Graphics2D;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
@@ -18,6 +20,7 @@ public class TileManager {
         tile = new Tile[20];
         mapTileNum= new int[gp.maxWorldRow][gp.maxWorldCol];
         getTileImage();
+        loadMap("maps/map01.txt");
     }
 
     public void getTileImage(){
@@ -44,8 +47,8 @@ public class TileManager {
             e.printStackTrace();
         }
     }
-    public void draw(Graphics2D g2){
-        /*
+    /*public void draw(Graphics2D g2){
+        //*
         g2.drawImage(tile[1].image, 0, 0, gp.tileSize, gp.tileSize, null);
         g2.drawImage(tile[1].image, 48, 0, gp.tileSize, gp.tileSize, null);
         g2.drawImage(tile[1].image, 96, 0, gp.tileSize, gp.tileSize, null);
@@ -75,7 +78,7 @@ public class TileManager {
         g2.drawImage(tile[2].image, 96, 192, gp.tileSize, gp.tileSize, null);
         g2.drawImage(tile[2].image, 144, 192, gp.tileSize, gp.tileSize, null);
         g2.drawImage(tile[1].image, 192, 192, gp.tileSize, gp.tileSize, null);
-        */
+        //*
         int col=0;
         int row=0;
         int x=0;
@@ -91,6 +94,29 @@ public class TileManager {
                 y+=gp.tileSize;
             }
         }
-    }
+    }*/
+    public void loadMap(String filePath){
+        try {
+            InputStream is = getClass().getResourceAsStream(filePath);
+            BufferedReader br = new BufferedReader(new java.io.InputStreamReader(is));
+            int col=0;
+            int row=0;
+            while(col<gp.maxScreenCol && row < gp.maxScreenRow){
+                String line = br.readLine();
+                while(col<gp.maxScreenCol){
+                    String numbers[]=line.split(" ");
+                    int num=Integer.parseInt((numbers[col]));
+                    mapTileNum[col][row]=num;
+                    col++;
+                }
+                if(col==gp.maxScreenCol){
+                    col=0;
+                    row++;
+                }
+            }
+            br.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }   
 }
-
