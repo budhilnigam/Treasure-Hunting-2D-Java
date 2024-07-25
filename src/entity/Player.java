@@ -57,6 +57,7 @@ public class Player extends Entity{
         }
     }
     public void update(){
+        if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed){
         if(keyH.upPressed){
             direction="up";
             worldY-=speed;
@@ -78,6 +79,7 @@ public class Player extends Entity{
                 spriteNum=1;
             }
             spriteCounter=0;
+        }
         }
     }
     public void draw(Graphics2D g2){
