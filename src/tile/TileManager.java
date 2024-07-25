@@ -4,7 +4,9 @@ import java.awt.Graphics2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
+import java.nio.charset.StandardCharsets;
 
 import javax.imageio.ImageIO;
 
@@ -20,7 +22,7 @@ public class TileManager {
         tile = new Tile[20];
         mapTileNum= new int[gp.maxWorldRow][gp.maxWorldCol];
         getTileImage();
-        loadMap("maps/map01.txt");
+        loadMap("./res/maps/world01.txt");
     }
 
     public void getTileImage(){
@@ -97,8 +99,8 @@ public class TileManager {
     }*/
     public void loadMap(String filePath){
         try {
-            InputStream is = getClass().getResourceAsStream(filePath);
-            BufferedReader br = new BufferedReader(new java.io.InputStreamReader(is));
+            FileInputStream is = new FileInputStream(filePath);
+            BufferedReader br = new BufferedReader(new InputStreamReader(is,StandardCharsets.UTF_8));
             int col=0;
             int row=0;
             while(col<gp.maxScreenCol && row < gp.maxScreenRow){
