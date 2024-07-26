@@ -37,13 +37,13 @@ public class TileManager {
             tile[2].image=ImageIO.read(new File("./res/tiles/water.png"));
 
             tile[3]=new Tile();
-            tile[3].image=ImageIO.read(new File("./res/tiles/water.png"));//earth
+            tile[3].image=ImageIO.read(new File("./res/tiles/earth.png"));//earth
 
             tile[4]=new Tile();
-            tile[4].image=ImageIO.read(new File("./res/tiles/water.png"));//tree
+            tile[4].image=ImageIO.read(new File("./res/tiles/tree.png"));//tree
 
             tile[5]=new Tile();
-            tile[5].image=ImageIO.read(new File("./res/tiles/water.png"));//sand
+            tile[5].image=ImageIO.read(new File("./res/tiles/sand.png"));//sand
 
         } catch (IOException e){
             e.printStackTrace();
@@ -135,7 +135,7 @@ public class TileManager {
 
             g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
             worldCol++;
-            
+
             if(worldCol==gp.maxWorldCol){
                 worldCol=0;
                 worldRow++;
