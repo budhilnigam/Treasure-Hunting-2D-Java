@@ -14,15 +14,15 @@ import main.GamePanel;
 
 public class TileManager {
     GamePanel gp;
-    Tile[] tile;
-    int mapTileNum[][];
+    public Tile[] tile;
+    public int mapTileNum[][];
 
     public TileManager(GamePanel gp){
         this.gp = gp;
         tile = new Tile[20];
         mapTileNum= new int[gp.maxWorldRow][gp.maxWorldCol];
         getTileImage();
-        loadMap("./res/maps/world01.txt");
+        loadMap("./res/maps/map01.txt");
     }
 
     public void getTileImage(){
@@ -120,7 +120,7 @@ public class TileManager {
                 }
             }
             br.close();
-        } catch (IOException e){
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
