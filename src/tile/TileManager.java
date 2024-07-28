@@ -22,7 +22,7 @@ public class TileManager {
         tile = new Tile[20];
         mapTileNum= new int[gp.maxWorldRow][gp.maxWorldCol];
         getTileImage();
-        loadMap("./res/maps/map01.txt");
+        loadMap("./res/maps/world01.txt");
     }
 
     public void getTileImage(){
@@ -58,15 +58,15 @@ public class TileManager {
             BufferedReader br = new BufferedReader(new InputStreamReader(is,StandardCharsets.UTF_8));
             int col=0;
             int row=0;
-            while(col<gp.maxScreenCol && row < gp.maxScreenRow){
+            while(col<gp.maxWorldCol && row < gp.maxWorldRow){
                 String line = br.readLine();
-                while(col<gp.maxScreenCol){
+                while(col<gp.maxWorldCol){
                     String numbers[]=line.split(" ");
                     int num=Integer.parseInt(numbers[col]);
                     mapTileNum[col][row]=num;
                     col++;
                 }
-                if(col==gp.maxScreenCol){
+                if(col==gp.maxWorldCol){
                     col=0;
                     row++;
                 }

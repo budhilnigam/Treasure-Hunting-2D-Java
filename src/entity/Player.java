@@ -23,7 +23,7 @@ public class Player extends Entity{
         this.gp = gp;
         this.keyH = keyH;
 
-        screenX = gp.screenWidth/2 - gp.tileSize/2;
+        screenX = gp.screenWidth/2 - gp.tileSize/2;//change
         screenY = gp.screenHeight/2 - gp.tileSize/2;
         
         solidArea = new Rectangle();

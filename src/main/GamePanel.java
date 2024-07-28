@@ -21,8 +21,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight=tileSize*maxScreenRow;
 
     //WORLD SETTINGS
-    public final int maxWorldCol=20;
-    public final int maxWorldRow=20;
+    public final int maxWorldCol=50;
+    public final int maxWorldRow=50;
     public final int worldWidth=tileSize*maxWorldCol;
     public final int worldHeight=tileSize*maxWorldRow;
 
@@ -34,10 +34,6 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionChecker cChecker = new CollisionChecker(this);
     
     public Player player = new Player(this,keyH);
-    
-    int playerX=100;
-    int playerY=100;
-    int playerSpeed=4;
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
